@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ai-lead-classifier
+    env: node
+    region: ohio
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: OPENAI_API_KEY
+        scope: build,runtime
+        sync: false
+      - key: NODE_ENV
+        value: production
