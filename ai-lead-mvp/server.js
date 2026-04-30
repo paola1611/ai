@@ -22,8 +22,8 @@ initDb();
 import { fileURLToPath } from 'url';
 import path from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __serverFile = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__serverFile);
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
@@ -85,6 +85,12 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// 👇 SOLO arranca el servidor si NO estás en test
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
+
+// 👇 EXPORTA el app
+export default app;
