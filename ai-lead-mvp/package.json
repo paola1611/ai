@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server.js",
-    "start": "npm run build && node server.js"
+    "start": "npm run build && node server.js",
      "test": "echo \"Test ejecutado correctamente\" && exit 0"
   },
   "dependencies": {
