@@ -1,4 +1,4 @@
-🚀 AI Lead Classifier MVP
+🚀 AI Lead Classifier MVP.
 
 A simple full-stack MVP that captures user leads and uses AI to automatically classify them into actionable categories.
 
